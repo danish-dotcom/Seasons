@@ -1,4 +1,4 @@
-#Seasons App
+##Seasons App
 
 This app uses your location to determine your season right now!
 
