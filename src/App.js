@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { getByDisplayValue } from '@testing-library/react'
+
+import Season from './Season'
 
 export default class App extends Component {
     constructor(props) {
@@ -7,7 +8,7 @@ export default class App extends Component {
         this.state = {
             err: "",
             lat: null,
-            month: null
+            month: null,
         }
     }
 
@@ -34,22 +35,22 @@ export default class App extends Component {
         } else if (!this.state.month) {
             return (<p className="px-2 pt-4 text-danger">Error: Month Cannot be Determined</p>)
         } else {
-            return (<p className="px-2 pt-4 text-success">{this.getSeason()}</p>)
+            return(<Season season={this.getSeason}></Season>)
         }
     }
 
     getSeason() {
         if (this.state.lat > 0) {
             if (this.state.month > 9 && this.state.month < 2) {
-                return "Winter"
+                return 'winter'
             } else {
-                return "Summer"
+                return 'summer'
             }
         } else if (this.state.lat < 0) {
             if (this.state.month > 2 && this.state.month < 9) {
-                return "Winter"
+                return 'winter'
             } else {
-                return "Summer"
+                return 'summer'
             }
         }
     }
@@ -57,7 +58,7 @@ export default class App extends Component {
     render() {
         return (
             <div className="mx-3">
-                <h1 className="display-1">Seasons</h1>
+                <h1 className="display-1">Seasons</h1>                
                 {this.getDisplay()}
             </div>
         )
