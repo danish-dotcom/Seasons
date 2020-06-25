@@ -31,26 +31,26 @@ export default class App extends Component {
         if (!this.state.lat && !this.state.err) {
             return (<div className="spinner-border ml-5 mt-3" role="status"></div>)
         } else if (this.state.err) {
-            return (<p className="px-2 pt-4 text-danger">Error: {this.state.err}</p>)
+            return (<h5 className="px-2 pt-4 text-danger">Error: {this.state.err}</h5>)
         } else if (!this.state.month) {
-            return (<p className="px-2 pt-4 text-danger">Error: Month Cannot be Determined</p>)
+            return (<h5 className="px-2 pt-4 text-danger">Error: Month Cannot be Determined</h5>)
         } else {
-            return(<Season season={this.getSeason}></Season>)
+            return(<Season season={this.getSeason()}></Season>)
         }
     }
 
     getSeason() {
         if (this.state.lat > 0) {
             if (this.state.month > 9 && this.state.month < 2) {
-                return 'winter'
+                return "winter"
             } else {
-                return 'summer'
+                return "summer"
             }
         } else if (this.state.lat < 0) {
             if (this.state.month > 2 && this.state.month < 9) {
-                return 'winter'
+                return "winter"
             } else {
-                return 'summer'
+                return "summer"
             }
         }
     }

@@ -12,13 +12,13 @@ const seasonConfig = {
 }
 
 const Season = (props) => {
-    const { text, iconName } = seasonConfig[props.season()];
+    const { text, iconName } = seasonConfig[props.season];
     // console.log (props.season)
 
     return (
         <div>
             <i className={`icon-left massive ${iconName} icon`}></i>
-            <p className="px-2 pt-4"> {text} </p>
+            <h5 className="px-2 pt-4"> {text} </h5>
         </div>
     )
 }
